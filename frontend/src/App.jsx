@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import QuizGenerator from "./components/QuizGenerator";
 
 function App() {
   const [topic, setTopic] = useState("");
@@ -116,7 +117,6 @@ function App() {
           <h2 className="text-2xl font-bold mb-4">
             Response
           </h2>
-
           {answer ? (
             <div className="whitespace-pre-wrap leading-7">
               {answer}
@@ -128,6 +128,7 @@ function App() {
           )}
 
         </div>
+        <QuizGenerator />
 
       </div>
     </div>

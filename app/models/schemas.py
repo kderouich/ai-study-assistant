@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Literal
+from typing import Dict, Literal
 
 class StudyRequest(BaseModel):
     topic: str
@@ -16,5 +16,5 @@ class QuizRequest(BaseModel):
 class QuizEvaluationRequest(BaseModel):
     topic: str
     quiz: list
-    user_answers: list
+    user_answers: Dict[str, str]
     language: str
