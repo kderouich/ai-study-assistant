@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI  # type: ignore[import]
 from app.routes.study import router as study_router
 from app.routes.quiz import router as quiz_router
-from fastapi.middleware.cors import CORSMiddleware
+from app.routes.pdf import router as pdf_router
+from fastapi.middleware.cors import CORSMiddleware  # type: ignore[import]
 
 app = FastAPI()
 
@@ -22,3 +23,4 @@ def home():
 
 app.include_router(study_router)
 app.include_router(quiz_router)
+app.include_router(pdf_router)
