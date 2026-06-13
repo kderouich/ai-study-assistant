@@ -18,3 +18,9 @@ class QuizEvaluationRequest(BaseModel):
     quiz: list
     user_answers: Dict[str, str]
     language: str
+
+class SearchRequest(BaseModel):
+    query: str
+    
+class AskPdfRequest(BaseModel):
+    question: str

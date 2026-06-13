@@ -1,71 +1,90 @@
 # AI Study Assistant
 
-AI-powered study assistant backend built with FastAPI and OpenRouter.
+## Overview
+
+AI-powered learning platform that combines LLMs and Retrieval-Augmented Generation (RAG) to provide document-aware tutoring, quiz generation, automated assessment, and semantic PDF question answering.
 
 ## Features
 
-* Ask AI for topic explanations
-* Generate quizzes
-* Evaluate quiz answers
+- AI Tutor
+- Quiz Generation
+- Quiz Evaluation
+- PDF Upload
+- Semantic Search
+- RAG-based Question Answering
 
 ## Tech Stack
 
-* Python
-* FastAPI
-* OpenRouter
-* Pydantic
+### Frontend
 
-## Project Structure
+- React
+- Tailwind CSS
 
-```text
-app/
-│── main.py
-├── models/
-├── routes/
-└── services/
-```
+### Backend
 
-## Installation
+- FastAPI
+- Pydantic
 
-```bash
-git clone <your-repo-url>
-cd ai-study-assistant
-```
+### AI
 
-Create a virtual environment:
+- OpenRouter
+- Sentence Transformers
 
-```bash
-python -m venv venv
-```
+### RAG
 
-Activate venv:
+- ChromaDB
+- Semantic Search
+- PDF Processing
 
-Windows:
+## Architecture
 
-```bash
-venv\Scripts\activate
-```
+                    ┌──────────────┐
+                    │   React UI   │
+                    └──────┬───────┘
+                           │
+                           ▼
+                  ┌────────────────┐
+                  │    FastAPI     │
+                  └───────┬────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+        ▼                 ▼                 ▼
 
-Install dependencies:
+  AI Assistant      Quiz Engine       PDF Pipeline
 
-```bash
+        │                 │                 │
+        ▼                 ▼                 ▼
+
+   OpenRouter       OpenRouter      Text Extraction
+      LLM              LLM           Chunking
+                                           │
+                                           ▼
+                                   SentenceTransformers
+                                           │
+                                           ▼
+                                       ChromaDB
+                                           │
+                                           ▼
+                                     Semantic Search
+
+## Setup
+
+### Backend
+
 pip install -r requirements.txt
-```
 
-Create a `.env` file:
-
-```env
-OPENROUTER_API_KEY=your_api_key_here
-```
-
-Run the server:
-
-```bash
 uvicorn app.main:app --reload
-```
 
-Open:
+### Frontend
 
-```text
-http://127.0.0.1:8000/docs
-```
+npm install
+
+npm run dev
+
+## Future Improvements
+
+- Authentication
+- User Accounts
+- Learning Analytics
+- Study Progress Tracking
